@@ -1,7 +1,11 @@
 <script >
 import axios from 'axios';
+import ProjectSingleCard from "./components/ProjectSingleCard.vue";
 
   export default{
+    components:{
+      ProjectSingleCard
+    },
     data(){
       return{
         baseUrl : 'http://127.0.0.1:8000',
@@ -20,11 +24,12 @@ import axios from 'axios';
 </script>
 
 <template>
-  <div v-for="(projects,index) in projects " :key="index">
-    {{ projects.name }}
-    {{ projects.description }}
-    <img :src=" `${baseUrl}/storage/${projects.image}`" alt="">
+  <div class="container">
+    <div class="row">
+      <ProjectSingleCard v-for="(projects,index) in projects " :key="index" :projectProps="projects"/>
+    </div>
   </div>
+
 </template>
 
 <style lang="scss">
