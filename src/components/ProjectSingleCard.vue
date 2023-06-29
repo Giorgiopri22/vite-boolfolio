@@ -16,7 +16,7 @@ export default{
 <template>
     <div class="card">
         <img :src="`${baseUrl}/storage/${projectProps.image}`" alt="" class="img-fluid">
-        <h5>{{ projectProps.title }}</h5>
+        <RouterLink :to="{name: 'SingleProject', params:{slug:projectProps.slug}}"><h5>{{ projectProps.name }}</h5></RouterLink>
         <p>{{ projectProps.description }}</p>
 
         <p v-if="projectProps.type"><span>{{ projectProps.type.name }}</span></p>

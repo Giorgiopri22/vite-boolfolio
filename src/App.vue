@@ -1,35 +1,25 @@
 <script >
-import axios from 'axios';
-import ProjectSingleCard from "./components/ProjectSingleCard.vue";
+import HeaderComp from './components/HeaderComp.vue';
+
 
   export default{
     components:{
-      ProjectSingleCard
+      HeaderComp    
     },
-    data(){
-      return{
-        baseUrl : 'http://127.0.0.1:8000',
-        projects: []
-      }
-    }, mounted(){
-        this.getProjects()
-    },methods:{
-      getProjects(){
-        axios.get(`${this.baseUrl}/api/projects` ).then(res=>{
-          this.projects = res.data.projects
-        })
-      }
-    }
-  }
+    data() {
+        return {};
+    },
+    mounted() {
+    },
+    methods: {},
+    components: { HeaderComp }
+}
 </script>
 
 <template>
-  <div class="container">
-    <div class="row">
-      <ProjectSingleCard v-for="(projects,index) in projects " :key="index" :projectProps="projects"/>
-    </div>
-  </div>
+  <HeaderComp></HeaderComp>
 
+  <RouterView></RouterView>
 </template>
 
 <style lang="scss">
