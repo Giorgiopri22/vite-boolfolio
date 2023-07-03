@@ -1,10 +1,12 @@
 <template>
     <div class="matrix-background" ref="matrixBackground">
-      <div class="code-container">
-        <div v-for="">
-            <div v-for="(line, index) in codeLines" :key="index" class="code-line">
-            <div class="code-text">{{ line }}</div>
-            </div>
+      <div v-for="line in 12">
+        <div class="code-container">
+           <div v-for="line in 30"> 
+              <div v-for="(line, index) in codeLines" :key="index" class="code-line">
+                <div class="code-text">{{ line }}</div>
+              </div>
+           </div> 
         </div>
       </div>
     </div>
@@ -15,6 +17,17 @@
     data() {
       return {
         codeLines: [
+          "01001000",
+          "01100101",
+          "01101100",
+          "01101100",
+          "01101111",
+          "00100000",
+          "01010111",
+          "01101111",
+          "01110010",
+          "01101100",
+          "01100100",
           "01001000",
           "01100101",
           "01101100",
@@ -44,7 +57,7 @@
         this.animationInterval = setInterval(() => {
           this.codeLines.push(this.generateRandomCodeLine());
           this.codeLines.shift();
-        }, 100);
+        }, 200);
       },
       stopAnimation() {
         clearInterval(this.animationInterval);
@@ -76,7 +89,7 @@
     font-size: 16px;
     color: green;
     white-space: nowrap;
-    animation: scroll 5s linear infinite;
+    animation: scroll 60s linear infinite;
   }
   
   .code-line {
