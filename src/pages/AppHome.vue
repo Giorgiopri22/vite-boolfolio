@@ -1,7 +1,7 @@
 <template>
     <div class="matrix-background" ref="matrixBackground">
-      <div v-for="line in 12">
-        <div class="code-container">
+      <div v-for="line in 10">
+        <div class="code-container mx-1">
            <div v-for="line in 30"> 
               <div v-for="(line, index) in codeLines" :key="index" class="code-line">
                 <div class="code-text">{{ line }}</div>
@@ -18,27 +18,6 @@
       return {
         codeLines: [
           "01001000",
-          "01100101",
-          "01101100",
-          "01101100",
-          "01101111",
-          "00100000",
-          "01010111",
-          "01101111",
-          "01110010",
-          "01101100",
-          "01100100",
-          "01001000",
-          "01100101",
-          "01101100",
-          "01101100",
-          "01101111",
-          "00100000",
-          "01010111",
-          "01101111",
-          "01110010",
-          "01101100",
-          "01100100",
         ],
         animationInterval: null,
       };
@@ -64,7 +43,7 @@
       },
       generateRandomCodeLine() {
         // Logica per generare una riga di codice casuale
-        return Math.random().toString(4).substring(3, 12);
+        return Math.random().toString(10).substring(4, 15);
       },
       handleResize() {
         const matrixBackground = this.$refs.matrixBackground;
